@@ -1,0 +1,63 @@
+[
+  {
+    "name": "full",
+    "description": "Full KDG-Tree / MRG-Tree structural pipeline used as the reference setting.",
+    "flags": {
+      "stage3_variant": "full",
+      "search_variant": "frontier_tree"
+    }
+  },
+  {
+    "name": "greedy_frontier",
+    "description": "Replace frontier tree search with greedy single-path expansion that selects the highest-scoring service choice at each step.",
+    "flags": {
+      "stage3_variant": "full",
+      "search_variant": "greedy_frontier"
+    }
+  },
+  {
+    "name": "wo_service_aware_planning",
+    "description": "Do not expose the Stage2 similar-service context to the Stage3 sequence planner.",
+    "flags": {
+      "stage3_variant": "dag_no_service",
+      "search_variant": "frontier_tree"
+    }
+  },
+  {
+    "name": "wo_length_prior",
+    "description": "Remove the historical length hint and let the Stage3 planner decide the number of capability steps on its own.",
+    "flags": {
+      "stage3_variant": "dag_no_length",
+      "search_variant": "frontier_tree"
+    }
+  },
+  {
+    "name": "hard_length_prior",
+    "description": "Treat the historical length prior as an exact capability-step count constraint during Stage3 planning.",
+    "flags": {
+      "stage3_variant": "dag_hard_length",
+      "search_variant": "frontier_tree"
+    }
+  },
+  {
+    "name": "wo_history_prior",
+    "description": "Disable the history-based service prior during tree reasoning while keeping the rest of the pipeline unchanged.",
+    "flags": {
+      "stage3_variant": "full",
+      "search_variant": "frontier_tree",
+      "HISTORY_TOPK": 0,
+      "HISTORY_BONUS_STEP1": 0.0,
+      "HISTORY_BONUS_LATER": 0.0,
+      "TREE_ETA_HISTORY": 0.0
+    }
+  },
+  {
+    "name": "wo_state_dominance",
+    "description": "Disable state-dominance pruning during frontier tree reasoning to measure its contribution to search efficiency.",
+    "flags": {
+      "stage3_variant": "full",
+      "search_variant": "frontier_tree",
+      "TREE_ENABLE_STATE_DOMINANCE": false
+    }
+  }
+]
