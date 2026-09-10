@@ -1,0 +1,11 @@
+faiss-cpu==1.7.4
+gensim==4.4.0
+networkx
+numpy==1.26.4
+openai==2.15.0
+requests
+scikit-learn==1.7.2
+scipy==1.15.3
+torch==2.5.1
+torch-geometric==2.7.0
+tqdm==4.67.1
